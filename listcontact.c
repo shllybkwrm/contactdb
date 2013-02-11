@@ -18,7 +18,7 @@ int     main(void) {
         }
 
         error = sqlite3_prepare_v2(conn,
-                "select lastName,firstName,phonenum from contact",
+                "select lastName,firstName,phonenum,email from contact",
                 1000, &res, &tail);
 
         if (error != SQLITE_OK) {
@@ -32,6 +32,7 @@ int     main(void) {
                 printf("%s|", sqlite3_column_text(res, 0));
                 printf("%s|", sqlite3_column_text(res, 1));
                 printf("%s|", sqlite3_column_text(res, 2));
+                printf("%s|", sqlite3_column_text(res, 3));
                 printf("\n" );
 
                 rec_count++;
